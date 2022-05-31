@@ -15,12 +15,25 @@
 }
 .sepe{
     margin-left: 5px;
-    display: inline-block;
+    display: block;
     margin-right: 0;
     margin-top: 0;
-    color: black;
+    color: gray;
     font-family: arial;
     font-size: 12px;
     font-weight: bold;
     padding: 5px;
+    position: relative;
+    left: 70px;
+    bottom: 25px;
+}
+.surr{
+    height: 100px;
+    display: block;
+    margin-bottom: 16px;
+}
+.friend-name{
+    bottom: 10px;
+    position: relative;
+    left: 10px
 }

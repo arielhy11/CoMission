@@ -26,14 +26,14 @@ function NaviMe({ username, friend }) {
     });
 
     return (
-        <Nav.Item className="surr" style={{ "height": "87px", "border": "solid", "border-radius": "5px", "border-width": "1px" }}>
+        <Nav.Item className="surr">
             <div className="inlineClass">
                 <Nav.Link className="inlineClass" eventKey={friend}>
                     <img className='friend_pic' src={h1} alt=""></img>
-                    <strong>{friend}</strong>
+                    <strong className='friend-name'>{friend}</strong>
                     <div className="sepe">
                         {lastTime}<strong>{' >'}</strong>
-                        <span style={{ "margin": "1px" }}> {lastMessage}</span>
+                        <span> {lastMessage}</span>
                     </div>
                 </Nav.Link>
             </div>
