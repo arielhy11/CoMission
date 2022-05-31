@@ -1,0 +1,80 @@
+.messageText{
+    display: inline-block;
+    padding: 10px;
+    border-radius: 20px;
+    color: white;
+    width: 70%;
+    margin: 10px;
+}
+.mine{
+    display: flex;
+}
+.friend{
+    display: flex;
+    justify-content: flex-end;
+}
+.friend-frame{
+    display: block;
+    position: relative;
+}
+
+img{
+    width: 250px;
+    height: 200px;
+    border-radius: 25px;
+    background-color: #1877f2;
+    object-fit: cover;
+}
+video{
+    width: 250px;
+    height: 200px;
+    border-radius: 25px;
+    background-color: #1877f2;
+    object-fit: cover;
+}
+.smallblackarea {
+    bottom: 5px;
+    display: inline-block;
+    margin-right: 0;
+    margin-top: 0;
+    position: absolute;
+    right: 5px;
+    background: rgba(0,0,0,0.5);
+    color: #FFF;
+    font-family: arial;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 5px;
+}
+.smallblackarea-text {
+    display: inline-block;
+    margin-right: 0;
+    margin-top: 0;
+    background: rgba(0,0,0,0.5);
+    color: #FFF;
+    font-family: arial;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.imgblock {
+display: inline;
+position: relative;
+margin: 10px;
+}
+
+.txtblock{
+    background-color: #1877f2;
+    width: 45%;
+    border-radius: 20px;
+    margin: 10px;
+}
+
+.txt-friend-block{
+    background-color: #5a9bef;
+    width: 45%;
+    border-radius: 20px;
+    margin: 10px;
+}
+

@@ -1,0 +1,14 @@
+.card{
+    display: flex;
+    flex-direction: column-reverse;
+    height: 500px;
+    overflow-y: scroll;
+}
+
+.dropdown-menu{
+    width: 50px;
+}
+
+.btn-primary{
+    width: 100%;
+}

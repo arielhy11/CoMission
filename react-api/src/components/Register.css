@@ -1,0 +1,13 @@
+.form-horizontal{
+    display:block;
+    width:50%;
+    margin:100px auto;
+}
+
+.inputSqure{
+    background-color: bisque;
+}
+
+.center {
+    text-align: center;
+}
