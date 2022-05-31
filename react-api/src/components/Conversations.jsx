@@ -1,3 +1,5 @@
+import React, { Component } from 'react';
+
 import { Col, Row, Tab, Nav } from 'react-bootstrap';
 import "./Conversations.css"
 import NaviMe from '../items/NaviMe';
@@ -10,8 +12,8 @@ import anon from "./anon.png";
 import { HubConnectionBuilder, LogLevel } from '@microsoft/signalr';
 
 function Conversations() {
-    
-    const[connection, SetConnection] = useState();
+
+    const [connection, SetConnection] = useState();
     const [initialNames, setinitialNames] = useState([]);
     const [initiNames, setInitiNames] = useState([]);
     const [lastMessageList, setLastMessageList] = useState([]);
@@ -21,32 +23,31 @@ function Conversations() {
     var count = 0;
 
     const connectToServer = async () => {
-        try{
+        try {
             const connection = new HubConnectionBuilder().
-            withUrl('http://localhost:5287/chatHub').
-            configureLogging(LogLevel.Information).build();
+                withUrl('http://localhost:5287/chatHub').
+                configureLogging(LogLevel.Information).build();
 
-            connection.on("NewUser", (mess) =>
-                {
-                    console.log(mess);
-                }
-            )
-            connection.on("ReciveContact", 
-                async () => {
-                var saveData;
-                console.log("received contact");
-                await fetch('http://localhost:5287/api/contacts').then(response => response.json())
-                    .then(data => saveData = data);
-                var names = [];
-                for (var i in saveData) {
-                    if (saveData[i].userName === username) {
-                        const obj = { "name": saveData[i].name };
-                        names.push(obj);
-                    }
-                }
-                setinitialNames(names);
-                setInitiNames(names);
+            connection.on("NewUser", (mess) => {
+                console.log(mess);
             }
+            )
+            connection.on("ReciveContact",
+                async () => {
+                    var saveData;
+                    console.log("received contact");
+                    await fetch('http://localhost:5287/api/contacts').then(response => response.json())
+                        .then(data => saveData = data);
+                    var names = [];
+                    for (var i in saveData) {
+                        if (saveData[i].userName === username) {
+                            const obj = { "name": saveData[i].name };
+                            names.push(obj);
+                        }
+                    }
+                    setinitialNames(names);
+                    setInitiNames(names);
+                }
             )
             connection.on("ReceiveMessage", () => {
                 ++count;
@@ -78,32 +79,35 @@ function Conversations() {
     //when we connect, the server gives us 
     useEffect(() => {
         async function fetchData() {
-        const resp = await fetch('http://localhost:5287/api/contacts/');
-        const data = await resp.json();
-        for (var i in data) {
-            if (data[i].userName === username) {
-                const obj = { "name": data[i].id };
-                result.push(obj);
+            const resp = await fetch('http://localhost:5287/api/contacts/');
+            const data = await resp.json();
+            for (var i in data) {
+                if (data[i].userName === username) {
+                    const obj = { "name": data[i].id };
+                    result.push(obj);
+                }
             }
+            setinitialNames(result);
+            setInitiNames(result);
+            connectToServer();
         }
-        setinitialNames(result);
-        setInitiNames(result);
-        connectToServer();
-    } 
-    fetchData();},
-    [setinitialNames]);
+        fetchData();
+    },
+        [setinitialNames]);
 
     var listNames = [];
-    if((Array.isArray(initiNames) && initiNames.length)){
-    listNames = initiNames.map((now, key) => {
-        return <NaviMe username={username} friend={now.name} key={key} />
-    });}
+    if ((Array.isArray(initiNames) && initiNames.length)) {
+        listNames = initiNames.map((now, key) => {
+            return <NaviMe username={username} friend={now.name} key={key} />
+        });
+    }
     var listBoards = [];
-    if((Array.isArray(initialNames) && initialNames.length)){
+    if ((Array.isArray(initialNames) && initialNames.length)) {
         listBoards = initialNames.map((now, key) => {
-        return <ConvBoard value={value} connection={connection} userName={username} name={now.name} key={key} setLastMessage={setLastMessageList} lastMessageList={lastMessageList} index={key}
-            setLastTime={setLastTimeList} lastTimeList={lastTimeList} />
-    });}
+            return <ConvBoard value={value} connection={connection} userName={username} name={now.name} key={key} setLastMessage={setLastMessageList} lastMessageList={lastMessageList} index={key}
+                setLastTime={setLastTimeList} lastTimeList={lastTimeList} />
+        });
+    }
 
     async function invitation(username, contact) {
         const response =
@@ -153,9 +157,9 @@ function Conversations() {
         <>
             <Tab.Container id="everything" >
                 <Row>
-                <p style={{"margin": "0px 10px"}}> To rate the app tap <a href="http://localhost:5287/" target="_blank">here</a> </p>
+                    <p style={{ "margin": "0px 10px" }}> To rate the app tap <a href="http://localhost:5287/" target="_blank">here</a> </p>
                     <Col sm={3}>
-                        
+
                         <Nav variant="pills" className="flex-column">
                             <Nav.Item className='chatMenu'>
                                 <span class="d-block p-2 bg-primary text-white">

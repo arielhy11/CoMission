@@ -1,3 +1,5 @@
+import React, { Component } from 'react';
+
 import { Nav } from "react-bootstrap";
 import "./NaviMe.css"
 import h1 from "./h1.jpg"
@@ -19,9 +21,9 @@ function NaviMe({ username, friend }) {
             setLastMessage(data[data.length - 1].content);
     }
 
-    useEffect(() => { 
+    useEffect(() => {
         getResponse();
-      });
+    });
 
     return (
         <Nav.Item className="surr" style={{ "height": "87px", "border": "solid", "border-radius": "5px", "border-width": "1px" }}>

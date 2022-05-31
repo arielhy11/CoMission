@@ -1,3 +1,5 @@
+import React, { Component } from 'react';
+
 import { Button, Card, Tab, InputGroup, FormControl, DropdownButton } from 'react-bootstrap';
 import Message from './Message';
 import { useRef, useState, useEffect } from 'react';

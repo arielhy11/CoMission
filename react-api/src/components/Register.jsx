@@ -1,3 +1,5 @@
+import React, { Component } from 'react';
+
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Button, Col, Row, Container } from 'react-bootstrap';
@@ -28,9 +30,9 @@ function Register() {
         setUsersList(data);
     };
 
-    useEffect(() => { 
+    useEffect(() => {
         getResponse();
-      });
+    });
 
     async function postData(name, password) {
         const response =

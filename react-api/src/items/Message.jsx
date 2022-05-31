@@ -1,3 +1,5 @@
+import React, { Component } from 'react';
+
 import "./message.css"
 function Message({ text, type, imgSrc, me_or_friend, thisTime }) {
     //IMAGES!
@@ -5,7 +7,7 @@ function Message({ text, type, imgSrc, me_or_friend, thisTime }) {
         return (
             <div className="mine">
                 <div className="imgblock">
-                    <img src={imgSrc} alt=""/>
+                    <img src={imgSrc} alt="" />
                     <div className="smallblackarea">{thisTime}</div>
                 </div>
             </div>
@@ -16,7 +18,7 @@ function Message({ text, type, imgSrc, me_or_friend, thisTime }) {
         return (
             <div className="friend">
                 <div className="imgblock">
-                    <img src={imgSrc} alt=""/>
+                    <img src={imgSrc} alt="" />
                     <div className="smallblackarea">{thisTime}</div>
                 </div>
             </div>

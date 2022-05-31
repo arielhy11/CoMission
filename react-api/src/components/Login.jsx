@@ -1,3 +1,5 @@
+import React, { Component } from 'react';
+
 import "./Login.css"
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Col, Row, Container } from 'react-bootstrap';
@@ -16,9 +18,9 @@ function Login() {
         setUsersList(data);
     };
 
-    useEffect(() => { 
+    useEffect(() => {
         getResponse();
-      });
+    });
 
     const verify = () => {
         var username = document.getElementById('username').value;
@@ -65,7 +67,7 @@ function Login() {
                         </Button>
                         <p className="center rounded" > If you are not registered yet, <Link to={'Register'}>Register</Link> </p>
                     </div>
-                    
+
                 </form>
 
 
