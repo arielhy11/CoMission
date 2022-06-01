@@ -1,6 +1,10 @@
 function newMission() {
     return (
-        <div></div>
+        <div>
+            <form>
+                <label>my mission is</label>
+            </form>
+        </div>
     );
 }
 
