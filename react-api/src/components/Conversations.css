@@ -2,12 +2,6 @@
     background-color: #0df0d6;
 }
 
-.card{
-    margin-top: 5%;
-    height: 500px;
-    width: 90%;
-}
-
 .container{
     float: left;
     height: 100%;
@@ -68,3 +62,11 @@ img{
     z-index: -1;
 }
 
+.card{
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    height: 500px;
+    overflow-y: scroll;
+}

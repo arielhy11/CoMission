@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Col, Row, Tab, Nav } from 'react-bootstrap';
+import { Col, Row, Tab, Nav, Card } from 'react-bootstrap';
 import "./Conversations.css"
 import NaviMe from '../items/NaviMe';
 import ConvBoard from '../items/ConversationBoard';
@@ -178,7 +178,9 @@ function Conversations() {
                                     </table>
                                 </span>
                             </Nav.Item>
-                            {listNames}
+                            <card className='card'>
+                                {listNames}
+                            </card>
                         </Nav>
                     </Col>
                     <Col sm={9}>
